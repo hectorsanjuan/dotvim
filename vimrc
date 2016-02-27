@@ -464,6 +464,10 @@ nnoremap <space>gpl :Dispatch! git pull<cr>
 " [29] colors {{{
 " }}}
 " [30] plugins {{{
+" + EditorConfig {{{
+" Excludes from editorconfig vim-fugitive and remote files.
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+" + }}}
 " }}}
 " [31] misc {{{
 if has("gui_running")
