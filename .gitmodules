@@ -31,3 +31,6 @@
 [submodule "bundle/vim-rsi"]
 	path = bundle/vim-rsi
 	url = https://github.com/tpope/vim-rsi
+[submodule "bundle/vim-eunuch"]
+	path = bundle/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
