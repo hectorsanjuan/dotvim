@@ -267,6 +267,12 @@ endif
 " Maps space to leader for flex leader key and showcmd!
 map <space> <leader>
 
+" Converts <cr> to go to last line.
+nnoremap <cr> G
+
+" Converts <bs> to go to first line.
+nnoremap <bs> gg
+
 " Wrapped lines goes down/up to next row, rather than next line in file.
 noremap j gj
 noremap k gk
