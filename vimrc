@@ -464,6 +464,12 @@ nnoremap <space>gpl :Dispatch! git pull<cr>
 " [29] colors {{{
 " }}}
 " [30] plugins {{{
+" + MatchIt {{{
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+    runtime! macros/matchit.vim
+endif
+" + }}}
 " + EditorConfig {{{
 " Excludes from editorconfig vim-fugitive and remote files.
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
