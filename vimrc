@@ -80,10 +80,8 @@ set statusline=
 set statusline=[%n]             " Shows current buffer number.
 set statusline+=\ %<%.99f       " Shows buffer file path.
 set statusline+=\ %h%w%m%r      " Shows buffer flags.
-" Adds fugitive info to status line.
-if exists("fugitive#statusline")
-    set statusline+=%fugitive#statusline()
-endif
+" Adds fugitive info to status line if is loaded.
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 set statusline+=%=              " Separation point between left and right.
 set statusline+=%*              " Restore normal hightlight.
 set statusline+=[%{&fenc}]      " Shows buffer file encoding.
@@ -319,7 +317,7 @@ nnoremap gV `[v`]
 nnoremap <leader>w :w<cr>
 
 " Clears the highlighting of :set hlsearch.
-nnoremap <silent> <leader><leader> :nohlsearch<c-r>=has('diff')?'<bar>diffupdate':''<cr><cr>:redraw<cr>
+nnoremap <silent> <leader><space> :nohlsearch<c-r>=has('diff')?'<bar>diffupdate':''<cr><cr>:redraw<cr>
 
 " Search all diff markers.
 nnoremap <silent> <leader>fc <esc>/\v^[<=>]{7}( .*\|$)<cr>
@@ -406,6 +404,55 @@ nnoremap <leader>ev :vsp $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " + }}}
 " + plugin mappings {{{
+" ++ Fugitive mappings: {{{
+" Shows git status.
+nnoremap <leader>gs :Gstatus<cr>
+
+" Shows git blame.
+nnoremap <leader>gb :Gblame<cr>
+
+" Shows git diff.
+nnoremap <leader>gd :Gdiff<cr>
+
+" Reloads buffer file content.
+nnoremap <leader>gr :Gread<cr>
+
+" Saves buffer file and add to git index.
+nnoremap <leader>gw :Gwrite<cr>
+
+" Executes git commit.
+nnoremap <leader>gc :Gcommit -v<cr>
+
+" Executes git move on current file.
+nnoremap <leader>gm :Gmove<space>
+
+" Executes git grep.
+nnoremap <leader>gg :Ggrep<space>
+
+" Saves to stash and reload current file.
+nnoremap <leader>g- :silent Git stash<cr>:redraw!<cr>:e<cr>
+
+" Restores from stash and reload current file.
+nnoremap <leader>g+ :silent Git stash pop<cr>:redraw!<cr>:e<cr>
+
+" Calculates git previous revision of current file and loads into quickfix.
+nnoremap <leader>gl :silent Glog<cr>:redraw!<cr>:botright copen<cr>
+
+" Go to master branch.
+nnoremap <leader>gcm :Git checkout master<cr>
+
+" Go to new branch.
+nnoremap <leader>gcb :Git checkout -b<space>
+
+" Executes git checkout.
+nnoremap <leader>gco :Git checkout<space>
+
+" Executes git push.
+nnoremap <space>gps :Dispatch! git push<cr>
+"
+" Executes git pull.
+nnoremap <space>gpl :Dispatch! git pull<cr>
+" ++ }}}
 " + }}}
 " }}}
 " [29] colors {{{
