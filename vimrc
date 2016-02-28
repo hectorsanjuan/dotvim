@@ -273,6 +273,10 @@ nnoremap <cr> G
 " Converts <bs> to go to first line.
 nnoremap <bs> gg
 
+" Converts <c-n> and <c-p> on saner version for command line history.
+cnoremap <c-n> <down>
+cnoremap <c-p> <up>
+
 " Wrapped lines goes down/up to next row, rather than next line in file.
 noremap j gj
 noremap k gk
