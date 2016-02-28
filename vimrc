@@ -61,7 +61,6 @@ endif
 " [ 5] syntax, highlighting and spelling {{{
 set background=dark             " Sets background to dark color.
 set hlsearch                    " Highlights all matches for last search.
-set cursorline                  " Highlights current cursor line.
 set spelllang=en_us,es_es       " Sets spell languages.
 
 " Adds custom dictionary to add words.
@@ -507,6 +506,16 @@ let g:syntastic_php_phpcs_args='--standard=PSR2 --report=csv'
 " + Emmet {{{
 " Uses html5 closes and attributes.
 let g:emmet_html5 = 1
+" + }}}
+" + Conoline {{{
+" Enables auto commands to show cursor line only in active window.
+let g:conoline_auto_enable = 1
+
+" Uses default colorscheme color for cursor line in normal mode.
+let g:conoline_use_colorscheme_default_normal=1
+
+" Uses default colorscheme color for cursor line in insert mode.
+let g:conoline_use_colorscheme_default_insert=1
 " + }}}
 " }}}
 " [31] misc {{{
