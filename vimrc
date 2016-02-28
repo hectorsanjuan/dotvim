@@ -517,6 +517,15 @@ let g:conoline_use_colorscheme_default_normal=1
 " Uses default colorscheme color for cursor line in insert mode.
 let g:conoline_use_colorscheme_default_insert=1
 " + }}}
+" + Ack {{{
+" Uses ag (siver searcher) if exists on path.
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+
+" Uses dispatch for background search.
+let g:ack_use_dispatch = 1
+" + }}}
 " }}}
 " [31] misc {{{
 if has("gui_running")
