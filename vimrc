@@ -89,12 +89,10 @@ set statusline+=[%{&ff}]        " Shows buffer file format.
 set statusline+=%y              " Shows buffer file type.
 set statusline+=[%l,%c%V]       " Shows buffer cursor position.
 set statusline+=[%P]            " Shows buffer cursor position relative.
+set statusline+=%#WarningMsg#   " Sets WarningMsg highlight group.
 " Adds syntastic info to status line.
-if exists("SyntasticStatuslineFlag")
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-endif
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*              " Restores highlighting.
 " }}}
 " [ 7] multiple tab pages {{{
 set showtabline=0               " Never shows tab line.
@@ -383,11 +381,23 @@ noremap <leader>qo :copen<cr>
 " Closes quickfix window.
 noremap <leader>qc :cclose<cr>
 
-" Go to previous quickfix file listings.
+" Go to previous quickfix entry.
 noremap <leader>qp :cprevious<cr>
 
-" Go to next quickfix file listings.
+" Go to next quickfix entry.
 noremap <leader>qn :cnext<cr>
+
+" Opens location list window.
+noremap <leader>lo :lopen<cr>
+
+" Closes location list window.
+noremap <leader>lc :lclose<cr>
+
+" Go to previous location list entry.
+noremap <leader>lp :lprevious<cr>
+
+" Go to next location list entry.
+noremap <leader>ln :lnext<cr>
 
 " Toggles spell checking.
 noremap <leader>ss :setlocal spell!<cr>
@@ -477,6 +487,22 @@ endif
 " + EditorConfig {{{
 " Excludes from editorconfig vim-fugitive and remote files.
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+" + }}}
+" + Syntastic {{{
+" Always populates location list.
+let g:syntastic_always_populate_loc_list = 1
+
+" Do not open/close location list automatically.
+let g:syntastic_auto_loc_list = 0
+
+" Triggers syntastic check on file open.
+let g:syntastic_check_on_open = 1
+
+" Triggers syntastic check on write and quit.
+let g:syntastic_check_on_wq = 0
+
+" PHPCS must use PSR2 standard.
+let g:syntastic_php_phpcs_args='--standard=PSR2 --report=csv'
 " + }}}
 " }}}
 " [31] misc {{{
