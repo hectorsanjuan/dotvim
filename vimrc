@@ -504,6 +504,10 @@ let g:syntastic_check_on_wq = 0
 " PHPCS must use PSR2 standard.
 let g:syntastic_php_phpcs_args='--standard=PSR2 --report=csv'
 " + }}}
+" + Emmet {{{
+" Uses html5 closes and attributes.
+let g:emmet_html5 = 1
+" + }}}
 " }}}
 " [31] misc {{{
 if has("gui_running")
