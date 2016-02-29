@@ -646,10 +646,9 @@ let g:airline_powerline_fonts = 1
     \ 'S'  : 'S',
     \ '' : 'S',
 \ }
-" let g:airline_theme = 'base16'
-" let g:airline_theme = 'solarized'
-" let g:airline#extensions#branch#enabled = 1
-" let g:airline#extensions#syntastic#enabled = 1
+
+" Uses base16 as airline theme.
+let g:airline_theme = 'base16'
 " + }}}
 " }}}
 " [31] misc {{{
