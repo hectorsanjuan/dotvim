@@ -1,0 +1,121 @@
+extends html
+
+snippet echo "twig echo" w
+{{ ${VISUAL}${1} }}$0
+endsnippet
+
+snippet ae "twig autoscape" b
+{% autoescape %}
+	${VISUAL}$0
+{% endautoescape %}
+endsnippet
+
+snippet aef "twig autoscape false" b
+{% autoescape false %}
+	${VISUAL}$0
+{% endautoescape %}
+endsnippet
+
+snippet aeh "twig autoscape html" b
+{% autoescape 'html' %}
+	${VISUAL}$0
+{% endautoescape %}
+endsnippet
+
+snippet aej "twig autoscape js" b
+{% autoescape 'js' %}
+	${VISUAL}$0
+{% endautoescape %}
+endsnippet
+
+snippet bl "twig block" b
+{% block ${1} %}
+	${VISUAL}$0
+{% endblock $1 %}
+endsnippet
+
+snippet endbl "twig endblock" b
+{% endblock %}$0
+endsnippet
+
+snippet bb "twig inline block" b
+{% block ${1} %}${2}{% endblock %}$0
+endsnippet
+
+snippet do "twig do" b
+{% do ${1} %}$0
+endsnippet
+
+snippet ext "twig extends" Vb
+{% extends ${1} %}
+endsnippet
+
+snippet filter "twig filter" b
+{% filter ${1} %}
+	${VISUAL}$0
+{% endfilter %}
+endsnippet
+
+snippet for "twig for" b
+{% for ${1} in ${2} %}
+	${VISUAL}$0
+{% endfor %}
+endsnippet
+
+snippet endfor "twig endfor" b
+{% endfor %}$0
+endsnippet
+
+snippet if "twig if" b
+{% if ${1} %}
+	${VISUAL}$0
+{% endif %}
+endsnippet
+
+snippet elseif "twig elseif" b
+{% elseif ${1} %}$0
+endsnippet
+
+snippet else "Description" b
+{% else %}$0
+endsnippet
+
+snippet endif "twig endif" b
+{% endif %}$0
+endsnippet
+
+snippet raw "twig verbatim" b
+{% verbatim %}
+	${VISUAL}$0
+{% endverbatim %}
+endsnippet
+
+snippet inc "twig include" b
+{{ include(${1:'template'}${2:, \{${3}\}}) }}$0
+endsnippet
+
+snippet dump "twig dump" b
+{{ dump(${1}) }}$0
+endsnippet
+
+snippet super "twig parent" b
+{{ parent() }}$0
+endsnippet
+
+# Symfony twig helpers
+
+snippet cont "symfony twig render controller" b
+{{ render(controller('${1:AppBundle}:${2:Page}:${3}'${4:, \{${5}\}})) }}$0
+endsnippet
+
+snippet path "symfony twig path" w
+{{ path(${1:'homepage'}${2:, \{${3}\}}) }}
+endsnippet
+
+snippet url "symfony twig url" w
+{{ url(${1:'homepage'}${2:, \{${3}\}}) }}
+endsnippet
+
+snippet asset "symfony twig asset" w
+{{ asset(${1:'path/to/asset.jpg'}) }}
+endsnippet

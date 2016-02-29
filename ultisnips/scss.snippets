@@ -1,0 +1,74 @@
+extends css
+
+snippet $ "Variable declaration" b
+\$${1:variable}: ${2:value};
+endsnippet
+
+snippet imp "Partial import" b
+@import '${1}';$0
+endsnippet
+
+snippet mix "Mixin" b
+@mixin ${1:mixin}(${2}) {
+	${VISUAL}$0
+}
+endsnippet
+
+
+snippet fun "Function" b
+@function ${1:function}(${2}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet ext "Class extend" b
+@extend ${1};$0
+endsnippet
+
+snippet inc "Include mixin" b
+@include ${1:mixin}(${2});$0
+endsnippet
+
+snippet mod "Component module" b
+$module: '${1:`!p snip.rv=snip.basename[1:].lower()`}';
+
+.#{$module} {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet if "if block" w
+@if ${1:condition} {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet elseif "if block" w
+@else if ${1:condition} {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet else "if else block" w
+@else {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet for "for loop" b
+@for ${1:\$i} from ${2:1} through ${3:5} {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet while "while loop" b
+@while ${1:\$i > 0} {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet each "each loop" b
+@each ${1:\$item} in ${2:\$items} {
+	${VISUAL}$0
+}
+endsnippet

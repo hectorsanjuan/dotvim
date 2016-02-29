@@ -1,0 +1,58 @@
+snippet package "Node package config" b
+{
+	"name": "${1:project name}",
+	"version": "${2:0.1.0}",
+	"description": "${3:project description}",
+	"homepage": "${4:project page}",
+	"private": true,
+	"scripts": {
+	},
+	"repository": {
+		"type": "git",
+		"url": "${5:git+ssh://git@bitbucket.org/${6}}"
+	},
+	"author": {
+		"name": "${7:`git config user.name`}",
+		"email": "${8:`git config user.email`}"
+	},
+	"license": "UNLICENSED",
+	"engines": {
+		"node": ">=0.10.0"
+	},
+	"devDependencies": {
+	},
+	"dependencies": {
+		$0
+	}
+}
+endsnippet
+
+snippet composer "PHP Composer config" b
+{
+	"name": "${1:vendor}/${2:project}",
+	"license": "proprietary",
+	"type": "project",
+	"authors": [
+		{
+			"name": "${3:`git config user.name`}",
+			"email": "${4:`git config user.email`}"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"${5}": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"$5Tests\\\\": "tests/"
+		}
+	},
+	"require": {
+		"php": ">=5.5.9"$0
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^5.2"
+	}
+}
+endsnippet

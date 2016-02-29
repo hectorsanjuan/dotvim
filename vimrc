@@ -472,9 +472,9 @@ nnoremap <space>gps :Dispatch! git push<cr>
 " Executes git pull.
 nnoremap <space>gpl :Dispatch! git pull<cr>
 " ++ }}}
-" ++ CtrlP mappings {{{
+" ++ CtrlP mappings: {{{
 " Opens CtrlP.
-nnoremap <leader>p :CtrlP<cr>
+nnoremap <leader>pp :CtrlP<cr>
 
 " Opens CtrlP buffer list.
 nnoremap <leader>pb :CtrlPBuffer<cr>
@@ -490,6 +490,10 @@ nnoremap <leader>pu :CtrlPUndo<cr>
 
 " Opens CtrlP clear cache.
 nnoremap <leader>pu :CtrlPClearCache<cr>
+" ++ }}}
+" ++ UltiSnips mappings: {{{
+" Opens UltiSnipsEdit.
+nnoremap <leader>us :UltiSnipsEdit<cr>
 " ++ }}}
 " + }}}
 " }}}
@@ -574,6 +578,28 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
     \ 'file': '\v\.(exe|so|dll)$',
 \ }
+" + }}}
+" + GitGutter {{{
+let g:gitgutter_sign_column_always = 1
+" + }}}
+" + UltiSnips {{{
+" Shows snippet edit window on vertical split.
+let g:UltiSnipsEditSplit = 'vertical'
+
+" Sets snippet base folder.
+let g:UltiSnipsSnippetsDir = '~/.vim/ultisnips'
+
+" Sets snippet expansion key.
+let g:UltiSnipsExpandTrigger = '<tab>'
+
+" Sets key to show snippet list.
+let g:UltiSnipsListSnippets = '<s-tab>'
+
+" Sets snippet placeholder jump forward key.
+let g:UltiSnipsJumpForwardTrigger = '<c-f>'
+
+" Sets snippet placeholder jump backward key.
+let g:UltiSnipsJumpBackwardTrigger = '<c-b>'
 " + }}}
 " }}}
 " [31] misc {{{
