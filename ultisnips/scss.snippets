@@ -14,7 +14,6 @@ snippet mix "Mixin" b
 }
 endsnippet
 
-
 snippet fun "Function" b
 @function ${1:function}(${2}) {
 	${VISUAL}$0
@@ -69,6 +68,24 @@ endsnippet
 
 snippet each "each loop" b
 @each ${1:\$item} in ${2:\$items} {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet small "media query bootstrap small selector" b
+@media screen and (min-width: \$screen-sm) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet medium "media query bootstrap medium selector" b
+@media screen and (min-width: \$screen-md) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet large "media query bootstrap large selector" b
+@media screen and (min-width: \$screen-lg) {
 	${VISUAL}$0
 }
 endsnippet

@@ -674,6 +674,27 @@ endif
 "     * zk -> go to previous fold
 "   }}}
 "
+" + Base completion mappings {{{
+"   To move between options simply uniform mappings:
+"     * <c-n> -> Go to next completion option.
+"     * <c-p> -> Go to previous completion option.
+"
+"   To open each different menu (see :help ins-completion):
+"     * <c-n> -> Opens complete menu (see :help complete).
+"     * <c-p> -> Opens complete menu inverted (see :help complete).
+"     * <c-x> s -> Spelling suggestions.
+"     * <c-x><c-n> -> Opens context aware complete menu.
+"     * <c-x><c-p> -> Opens context aware complete menu inverted.
+"     * <c-x><c-l> -> Opens complete line menu.
+"     * <c-x><c-f> -> Opens file completion menu.
+"     * <c-x><c-v> -> Opens vim command line completion menu.
+"     * <c-x><c-]> -> Opens tags completion menu.
+"     * <c-x><c-o> -> Opens omni completion menu.
+"     * <c-x><c-u> -> Opens User defined completion menu.
+"     * <c-x><c-k> -> Opens dictionary completion menu.
+"     * <c-x><c-t> -> Opens thesaurus completion menu.
+"   }}}
+"
 " + Insert special data on insert mode with registers {{{
 "   Enable insertion with <c-r> then use one of this registers:
 "     * '"' -> the last deleted of yanked text.

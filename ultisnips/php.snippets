@@ -1,3 +1,59 @@
+snippet php "PHP start tag" b
+<?php
+
+$0
+endsnippet
+
+snippet lic "File license header" b
+/*
+ * This file is part of $1
+ *
+ * (c) ${2:`git config user.name` <`git config user.email`>}
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+$0
+endsnippet
+
+snippet ns "namespace declaration" b
+namespace ${1:`!p
+abspath = os.path.abspath(path)
+m = re.search(r'[A-Z].+(?=/)', abspath)
+if m:
+	snip.rv = m.group().replace('/', '\\')
+`};
+endsnippet
+snippet class "class declaration" !b
+/**
+ * $1 class
+ */
+class ${1:`!p snip.rv = os.path.splitext(snip.fn)[0]`}
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet interface "interface declaration" !b
+/**
+ * $1 interface
+ */
+interface  ${1:`!p snip.rv = os.path.splitext(snip.fn)[0]`}
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet trait "trait declaration" !b
+/**
+ * $1 trait
+ */
+trait ${1:`!p snip.rv = os.path.splitext(snip.fn)[0]`}
+{
+	${VISUAL}$0
+}
+endsnippet
+
 snippet _c "class constructor" b
 /**
  * Constructor
@@ -6,4 +62,113 @@ public function __construct(${1})
 {
 	${VISUAL}$0
 }
+endsnippet
+
+snippet fun "function" b
+function ${1:name}(${2})
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet pub "class method" b
+/**
+ * ${3}
+ */
+public function ${1:method}(${2})
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet pro "class protected method" b
+/**
+ * ${3}
+ */
+protected function ${1:method}(${2})
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet pri "class private method" b
+/**
+ * ${3}
+ */
+private function ${1:method}(${2})
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet if "if"
+if (${1:true}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet elsif "elseif"
+elseif (${1:true}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet else "else"
+else {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet try "try/catch" b
+try {
+	${VISUAL}$0
+} catch (${1:\Exception} $e) {
+}
+endsnippet
+
+snippet while "while" b
+while (${1:true}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet do "do" b
+do {
+	${VISUAL}$0
+} while (${1:true});
+endsnippet
+
+snippet for "for" b
+for (${2:\$i} = 0; $2 < ${1:count}; $2${3:++}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fore "Foreach loop"
+foreach (${1:\$variable} as $${2:\$value}) {
+	${VISUAL}$0
+}
+$0
+endsnippet
+
+snippet fork "foreach loop with keys"
+foreach (${1:\$variable} as ${2:\$key} => ${3:\$value}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet dd "dump and die"
+var_dump(${1:\$this});die;
+endsnippet
+
+snippet @par "@param definition"
+@param ${1:string} $${2:parameter} ${3:desc}
+endsnippet
+
+snippet @ret "@return definition"
+@return ${1:void} ${2:desc}
+endsnippet
+
+snippet @thr "@throws definition"
+@throws ${1:Exception} ${2:desc}
 endsnippet
