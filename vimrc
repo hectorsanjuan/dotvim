@@ -518,7 +518,6 @@ if &t_Co == 256 || has('gui_running')
     colorscheme base16-eighties
 endif
 " }}}
-" }}}
 " [30] plugins {{{
 " + MatchIt {{{
 " Load matchit.vim, but only if the user hasn't installed a newer version.
@@ -628,6 +627,29 @@ let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 
 " Fallback if context completion fails.
 let g:SuperTabContextDefaultCompletionType = '<c-n>'
+" + }}}
+" + Airline {{{
+" Enables use of powerline fonts.
+let g:airline_powerline_fonts = 1
+
+" Short form form vim modes.
+  let g:airline_mode_map = {
+    \ '__' : '-',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V',
+    \ '' : 'V',
+    \ 's'  : 'S',
+    \ 'S'  : 'S',
+    \ '' : 'S',
+\ }
+" let g:airline_theme = 'base16'
+" let g:airline_theme = 'solarized'
+" let g:airline#extensions#branch#enabled = 1
+" let g:airline#extensions#syntastic#enabled = 1
 " + }}}
 " }}}
 " [31] misc {{{
