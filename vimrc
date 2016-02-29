@@ -36,7 +36,8 @@ set ignorecase                  " Ignores case on search pattern.
 set smartcase                   " Overrides ignore case if term has upcase.
 " }}}
 " [ 3] tags {{{
-setglobal tags=./tags;          " Sets base tags file.
+" Sets base tags file location.
+setglobal tags-=./tags tags-=./tags; tags^=./tags;
 " }}}
 " [ 4] displaying text {{{
 set scrolloff=1                 " Shows 1 screen lines around cursor.
@@ -133,7 +134,8 @@ endif
 set undolevels=1000             " Sets maximum number of changes to undone.
 set backspace=indent,eol,start  " Sets backspace for normal people.
 set formatoptions+=j            " Removes comment chars where joining lines.
-set complete-=i                 " Scan of includes files can be slow.
+set complete-=i                 " Scans of includes files can be slow.
+set completeopt=menuone,longest " Shows completion menu and avoid preview.
 set showmatch                   " Shows matched bracket pairs.
 set nrformats-=octal            " Removes octal on increments/decrements.
 " }}}
@@ -250,6 +252,17 @@ if has("autocmd")
     augroup path_creating " {{{
         autocmd!
         autocmd BufWritePre * :call s:createParentFolders(expand('<afile>'), +expand('<abuf>'))
+    augroup END " }}}
+
+    " enables omni completion on local buffers.
+    augroup filetype_php " {{{
+        autocmd!
+        autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
     augroup END " }}}
 
     " auto commands for php filtype.
@@ -580,6 +593,7 @@ let g:ctrlp_custom_ignore = {
 \ }
 " + }}}
 " + GitGutter {{{
+" Always show sign column.
 let g:gitgutter_sign_column_always = 1
 " + }}}
 " + UltiSnips {{{
@@ -593,13 +607,20 @@ let g:UltiSnipsSnippetsDir = '~/.vim/ultisnips'
 let g:UltiSnipsExpandTrigger = '<tab>'
 
 " Sets key to show snippet list.
-let g:UltiSnipsListSnippets = '<s-tab>'
+let g:UltiSnipsListSnippets = '<c-tab>'
 
 " Sets snippet placeholder jump forward key.
 let g:UltiSnipsJumpForwardTrigger = '<c-f>'
 
 " Sets snippet placeholder jump backward key.
 let g:UltiSnipsJumpBackwardTrigger = '<c-b>'
+" + }}}
+" + SuperTab {{{
+" Uses context to use text preceding on trigger completion menu.
+let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+
+" Fallback if context completion fails.
+let g:SuperTabContextDefaultCompletionType = '<c-n>'
 " + }}}
 " }}}
 " [31] misc {{{
