@@ -511,6 +511,13 @@ nnoremap <leader>us :UltiSnipsEdit<cr>
 " + }}}
 " }}}
 " [29] colors {{{
+" Sets 256 color scheme based on base16 color schemes
+if &t_Co == 256 || has('gui_running')
+    let base16colorspace = 256
+
+    colorscheme base16-eighties
+endif
+" }}}
 " }}}
 " [30] plugins {{{
 " + MatchIt {{{
