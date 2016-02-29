@@ -472,6 +472,25 @@ nnoremap <space>gps :Dispatch! git push<cr>
 " Executes git pull.
 nnoremap <space>gpl :Dispatch! git pull<cr>
 " ++ }}}
+" ++ CtrlP mappings {{{
+" Opens CtrlP.
+nnoremap <leader>p :CtrlP<cr>
+
+" Opens CtrlP buffer list.
+nnoremap <leader>pb :CtrlPBuffer<cr>
+
+" Opens CtrlP buffer tags list.
+nnoremap <leader>pt :CtrlPBufTag<cr>
+
+" Opens CtrlP quickfix list.
+nnoremap <leader>pq :CtrlPQuickfix<cr>
+
+" Opens CtrlP undo history list.
+nnoremap <leader>pu :CtrlPUndo<cr>
+
+" Opens CtrlP clear cache.
+nnoremap <leader>pu :CtrlPClearCache<cr>
+" ++ }}}
 " + }}}
 " }}}
 " [29] colors {{{
@@ -525,6 +544,36 @@ endif
 
 " Uses dispatch for background search.
 let g:ack_use_dispatch = 1
+" + }}}
+" + CtrlP {{{
+" Adds tags on buffer extension.
+let g:ctrlp_extensions = ['buffertag', 'quickfix']
+
+" Uses project root as base (.git, .hg, .svn, .bzr).
+let g:ctrlp_working_path_mode = 'ra'
+
+" Changes default mapping.
+let g:ctrlp_map = '<f11>'
+
+" Uses CtrlP command as default command.
+let g:ctrlp_cmd = 'CtrlP'
+
+" Changes CtrlP cache folder.
+let g:ctrlp_cache_dir = '~/.vim/cache/ctrlp'
+
+" Uses git ls-files if git project and fallback to find.
+let g:ctrlp_user_command = {
+    \ 'types': {
+        \ 1: ['.git', 'cd %s && git ls-files --cached --exclude-standard --others']
+    \ },
+    \ 'fallback': 'find %s -type f'
+\ }
+
+" Adds repo folder (.git, .hg, .svn) to ignore path.
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+\ }
 " + }}}
 " }}}
 " [31] misc {{{
