@@ -62,6 +62,7 @@ endif
 " [ 5] syntax, highlighting and spelling {{{
 set background=dark             " Sets background to dark color.
 set hlsearch                    " Highlights all matches for last search.
+set colorcolumn=80,120          " Shows wrap column at 80 and 120 characters.
 set spelllang=en_us,es_es       " Sets spell languages.
 
 " Adds custom dictionary to add words.
@@ -299,6 +300,9 @@ vnoremap > >gv
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 
+" Go to matching pair easily with tab
+nnoremap <tab> %
+
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
 
@@ -323,6 +327,10 @@ noremap <c-j> <c-w>j
 noremap <c-k> <c-w>k
 noremap <c-l> <c-w>l
 
+" Open empty splits easier.
+nnoremap <silent> vv <c-w>v
+nnoremap <silent> ss <c-w>s
+
 " Format selected text on visual mode.
 vnoremap Q gq
 
@@ -331,6 +339,16 @@ nnoremap Q gqap
 
 " Select on visual mode last inserted/pasted text.
 nnoremap gV `[v`]
+
+" Easy quit.
+nnoremap qq :q<cr>
+
+" Swap markers due to spanish dead keys.
+nnoremap ' `
+nnoremap ` '
+
+" Saves file using sudo.
+cnoremap !!w w !sudo tee % > /dev/null
 " + }}}
 " + leader key mappings {{{
 " Saves current file.
