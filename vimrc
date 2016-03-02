@@ -288,13 +288,16 @@ if has("autocmd")
         autocmd FileType php setlocal commentstring=//\ %s
 
         " Sets buffer mappings to insert use namespace sentence.
-        autocmd FileType php inoremap <localleader>ns <esc>:call IPhpInsertUse()<cr>
-        autocmd FileType php noremap <localleader>ns :call PhpInsertUse()<cr>
+        autocmd FileType php inoremap <buffer> <localleader>ns <esc>:call IPhpInsertUse()<cr>
+        autocmd FileType php noremap <buffer> <localleader>ns :call PhpInsertUse()<cr>
 
         " Sets buffer mappings to expand fdqn class name.
+        autocmd FileType php inoremap <buffer> <localleader>ec <esc>:call IPhpExpandClass()<cr>
+        autocmd FileType php noremap <buffer> <localleader>ec :call PhpExpandClass()<cr>
 
-        autocmd FileType php inoremap <localleader>ec <esc>:call IPhpExpandClass()<CR>
-        autocmd FileType php noremap <localleader>ec :call PhpExpandClass()<CR>
+
+        " Sets buffer mapping to fix coding style of current buffer.
+        autocmd FileType php nnoremap <buffer> <silent> <localleader>fp :call PhpCsFixerFixFile()<cr><cr>
     augroup END " }}}
 endif
 " }}}
@@ -692,6 +695,13 @@ let g:airline_powerline_fonts = 1
 
 " Uses base16 as airline theme.
 let g:airline_theme = 'base16'
+" + }}}
+" + php-cs-fixer {{{
+" Sets fixer to PSR2 standard level.
+let g:php_cs_fixer_level = 'psr2'
+
+" No uses default mapping.
+let g:php_cs_fixer_enable_default_mapping = 0
 " + }}}
 " }}}
 " [31] misc {{{
