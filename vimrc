@@ -21,6 +21,10 @@
 "
 " To start vim without loading any .vimrc or plugins, use:
 "   vim -u NONE
+
+" ****************************************************************************
+" HERE BE DRAGONS!
+" ****************************************************************************
 " }}}
 " [ 1] important {{{
 set nocompatible                " The vi is dead, long live the vim!
@@ -222,6 +226,18 @@ function! s:createParentFolders(file, buf)
         endif
     endif
 endfunction
+
+" Expands php fdqn class name and insert on use section on insert mode.
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+
+" Expands php fdqn class name on insert mode.
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
 " }}}
 " [27] auto commands {{{
 if has("syntax")
@@ -270,6 +286,15 @@ if has("autocmd")
     augroup filetype_php " {{{
         autocmd!
         autocmd FileType php setlocal commentstring=//\ %s
+
+        " Sets buffer mappings to insert use namespace sentence.
+        autocmd FileType php inoremap <localleader>ns <esc>:call IPhpInsertUse()<cr>
+        autocmd FileType php noremap <localleader>ns :call PhpInsertUse()<cr>
+
+        " Sets buffer mappings to expand fdqn class name.
+
+        autocmd FileType php inoremap <localleader>ec <esc>:call IPhpExpandClass()<CR>
+        autocmd FileType php noremap <localleader>ec :call PhpExpandClass()<CR>
     augroup END " }}}
 endif
 " }}}
