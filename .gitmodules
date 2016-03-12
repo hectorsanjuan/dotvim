@@ -100,3 +100,6 @@
 [submodule "bundle/vim-php-cs-fixer"]
 	path = bundle/vim-php-cs-fixer
 	url = https://github.com/stephpy/vim-php-cs-fixer
+[submodule "bundle/vim-go"]
+	path = bundle/vim-go
+	url = https://github.com/fatih/vim-go

@@ -295,14 +295,45 @@ if has("autocmd")
         autocmd FileType php inoremap <buffer> <localleader>ec <esc>:call IPhpExpandClass()<cr>
         autocmd FileType php noremap <buffer> <localleader>ec :call PhpExpandClass()<cr>
 
-
         " Sets buffer mapping to fix coding style of current buffer.
         autocmd FileType php nnoremap <buffer> <silent> <localleader>fp :call PhpCsFixerFixFile()<cr><cr>
+    augroup END " }}}
+
+    " auto commands for go filetype.
+    augroup filetype_go " {{{
+        autocmd!
+
+        " Runs current file.
+        autocmd FileType go nmap <buffer> <localleader>r <plug>(go-run)
+
+        " Builds current package.
+        autocmd FileType go nmap <buffer> <localleader>b <plug>(go-build)
+
+        " Runs tests for current package.
+        autocmd FileType go nmap <buffer> <localleader>t <plug>(go-test)
+
+        " Runs test coverage.
+        autocmd FileType go nmap <buffer> <localleader>c <plug>(go-coverage)
+
+        " Shows go doc for word under the cursor.
+        autocmd FileType go nmap <buffer> <localleader>d <plug>(go-doc)
+
+        " Shows interfaces list implemented by type under the cursor.
+        autocmd FileType go nmap <buffer> <localleader>s <plug>(go-implements)
+
+        " Shows type info for the word under the cursor.
+        autocmd FileType go nmap <buffer> <localleader>i <plug>(go-info)
+
+        " Rename indentifier under the cursor.
+        autocmd FileType go nmap <buffer> <localleader>e <plug>(go-rename)
     augroup END " }}}
 endif
 " }}}
 " [28] key mappings {{{
 " + basic mappings {{{
+" Sets localleader as _ you know for buffer mappings.
+let maplocalleader='_'
+
 " Maps space to leader for flex leader key and showcmd!
 map <space> <leader>
 
@@ -703,6 +734,57 @@ let g:php_cs_fixer_level = 'psr2'
 " No uses default mapping.
 let g:php_cs_fixer_enable_default_mapping = 0
 " + }}}
+" + vim-go {{{
+" Sets ultisnips as snippet engine.
+let g:go_snippet_engine = 'ultisnips'
+
+" Disables man mapping for godoc.
+let g:go_doc_keywordprg_enabled = 0
+
+" Disables mapping for godef.
+let g:go_def_mapping_enabled = 0
+
+" Enables use of vim-dispatch.
+let g:go_dispatch_enabled = 1
+
+let g:go_fmt_command = 'goimports'
+
+" Highlights white space after "[]" style errors.
+let g:go_highlight_array_whitespace_error = 0
+
+" Highlights white space around <- style errors.
+let g:go_highlight_chan_whitespace_error = 0
+
+" Highlights instances of tabs following spaces.
+let g:go_highlight_space_tab_error = 0
+
+" Highlights trailing white space.
+let g:go_highlight_trailing_whitespace_error = 0
+
+" Highlights commonly used library types (io.Reader, etc.).
+let g:go_highlight_extra_types = 1
+
+" Highlights operators such as `:=` , `==`, `-=`, etc.
+let g:go_highlight_operators = 1
+
+" Highlights function names.
+let g:go_highlight_functions = 1
+
+" Highlights method names.
+let g:go_highlight_methods = 1
+
+" Highlights struct names.
+let g:go_highlight_structs = 1
+
+" Highlights interface names.
+let g:go_highlight_interfaces = 1
+
+" Highlights build constraints.
+let g:go_highlight_build_constraints = 1
+
+" Highlights spell errors in strings.
+let g:go_highlight_string_spellcheck = 1
+" + }}}
 " }}}
 " [31] misc {{{
 if has("gui_running")
@@ -773,5 +855,18 @@ endif
 "     * <50 -> Saves upto 50 lines for each register.
 "     * s10 -> Max sizes for registers in KB.
 "     * h   -> Disables hlsearch when loading viminfo.
+"   }}}
+"
+" + Tags management and movement {{{
+"     * ctrl-] -> go to tag useing word under cursor.
+"     * ctrl-T -> go back from tag method jump.
+"     * ctrl-O -> go back to position of older jump.
+"     * ctrl-I -> go forward to position of newer jump.
+"     * :ts -> list all tags mtching expression (or word under cursor).
+"     * :tn -> no go to next tag.
+"     * :tp -> no go to previous tag.
+"     * :tf -> no go to first tag.
+"     * :tl -> no go to last tag.
+"     * ,pt -> use CtrlPBufferTag for buffer fuzzy search.
 "   }}}
 " }}}
