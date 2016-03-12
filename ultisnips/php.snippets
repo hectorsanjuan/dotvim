@@ -24,11 +24,22 @@ if m:
 	snip.rv = m.group().replace('/', '\\')
 `};
 endsnippet
+
 snippet class "class declaration" !b
 /**
  * $1 class
  */
 class ${1:`!p snip.rv = os.path.splitext(snip.fn)[0]`}
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet testcase "test case declaration" !b
+/**
+ * $1 class test case
+ */
+class ${1:`!p snip.rv = os.path.splitext(snip.fn)[0]`} extends \PHPUnit_Framework_TestCase
 {
 	${VISUAL}$0
 }
@@ -49,6 +60,16 @@ snippet trait "trait declaration" !b
  * $1 trait
  */
 trait ${1:`!p snip.rv = os.path.splitext(snip.fn)[0]`}
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet _t "test method" b
+/**
+ * @test
+ */
+public function it_$1()
 {
 	${VISUAL}$0
 }
