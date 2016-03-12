@@ -785,6 +785,10 @@ let g:go_highlight_build_constraints = 1
 " Highlights spell errors in strings.
 let g:go_highlight_string_spellcheck = 1
 " + }}}
+" + Gutentags {{{
+" Sets tags file on .git folder.
+let g:gutentags_tagfile = '.git/tags'
+" + }}}
 " }}}
 " [31] misc {{{
 if has("gui_running")
