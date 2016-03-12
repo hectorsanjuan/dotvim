@@ -700,7 +700,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-b>'
 " + }}}
 " + SuperTab {{{
 " Uses context to use text preceding on trigger completion menu.
-let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+let g:SuperTabDefaultCompletionType = 'context'
 
 " Fallback if context completion fails.
 let g:SuperTabContextDefaultCompletionType = '<c-n>'
