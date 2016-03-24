@@ -106,3 +106,9 @@
 [submodule "bundle/vim-gutentags"]
 	path = bundle/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags
+[submodule "bundle/vmustache"]
+	path = bundle/vmustache
+	url = https://github.com/tobyS/vmustache
+[submodule "bundle/pdv"]
+	path = bundle/pdv
+	url = https://github.com/tobyS/pdv

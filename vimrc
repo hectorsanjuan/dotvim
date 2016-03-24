@@ -295,6 +295,10 @@ if has("autocmd")
         autocmd FileType php inoremap <buffer> <localleader>ec <esc>:call IPhpExpandClass()<cr>
         autocmd FileType php noremap <buffer> <localleader>ec :call PhpExpandClass()<cr>
 
+        " Sets buffer mapping to add docblock.
+        autocmd FileType php inoremap <buffer> <localleader>db <esc> :call pdv#DocumentWithSnip()<cr>
+        autocmd FileType php nnoremap <buffer> <localleader>db :call pdv#DocumentWithSnip()<cr>
+
         " Sets buffer mapping to fix coding style of current buffer.
         autocmd FileType php nnoremap <buffer> <silent> <localleader>fp :call PhpCsFixerFixFile()<cr><cr>
     augroup END " }}}
@@ -788,6 +792,10 @@ let g:go_highlight_string_spellcheck = 1
 " + Gutentags {{{
 " Sets tags file on .git folder.
 let g:gutentags_tagfile = '.git/tags'
+" + }}}
+" + PDV - PHP Documento for VIM {{{
+" Sets phpdoc template folder.
+let g:pdv_template_dir = $HOME . '/.vim/bundle/pdv/templates_snip'
 " + }}}
 " }}}
 " [31] misc {{{
