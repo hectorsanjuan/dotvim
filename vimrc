@@ -801,6 +801,10 @@ let g:pdv_template_dir = $HOME . '/.vim/bundle/pdv/templates_snip'
 " Disables custom indenter
 let g:typescript_indent_disable = 1
 " + }}}
+" + JSX syntax {{{
+" Enables jsx on .js files
+let g:jsx_ext_required = 0
+" + }}}
 " }}}
 " [31] misc {{{
 if has("gui_running")
