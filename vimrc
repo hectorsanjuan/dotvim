@@ -797,6 +797,10 @@ let g:gutentags_tagfile = '.git/tags'
 " Sets phpdoc template folder.
 let g:pdv_template_dir = $HOME . '/.vim/bundle/pdv/templates_snip'
 " + }}}
+" + Typescript syntax {{{
+" Disables custom indenter
+let g:typescript_indent_disable = 1
+" + }}}
 " }}}
 " [31] misc {{{
 if has("gui_running")
