@@ -596,7 +596,8 @@ nnoremap <leader>us :UltiSnipsEdit<cr>
 if &t_Co == 256 || has('gui_running')
     let base16colorspace = 256
 
-    colorscheme base16-eighties
+    " colorscheme base16-eighties
+    colorscheme base16-ocean
 endif
 " }}}
 " [30] plugins {{{

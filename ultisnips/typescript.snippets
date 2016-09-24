@@ -1,0 +1,23 @@
+extends javascript
+
+# Angular 2 bootstrap app module using platformBrowserDynamic snippet
+snippet ngboot "Angular 2 bootstrap app module using platformBrowserDynamic snippet"
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {${1:AppModule}} from './${2:filepath}.module';
+
+platformBrowserDynamic().bootstrapModule($1);
+endsnippet
+
+# Angular 2 root app module (@NgModule) snippet
+snippet ngmodule "Angular 2 root app module (@NgModule) snippet"
+import {NgModule} from '@angular/core';
+import {BrowserModule} from 'angular/platform-browser';
+import {${1:AppComponent}} from './${2:filepath}.component';
+
+@NgModule({
+	import: [BrowserModule],
+	declarations: [$1],
+	bootstrap: [$1]
+})
+export class AppModule {}
+endsnippet

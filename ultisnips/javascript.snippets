@@ -1,0 +1,26 @@
+# Arrow function
+snippet => "Arrow function" i
+($1) => $0
+endsnippet
+
+# Class
+snippet class "class"
+class ${1:name} {
+	${VISUAL}$0
+}
+endsnippet
+
+# Import default
+snippet imp "Import default" b
+import ${2:default} from '${1:lib}';$0
+endsnippet
+
+# Import object destructured
+snippet impo "Import destructuring object" b
+import {${2:Component}} from '${1:lib}';$0
+endsnippet
+
+# Import library
+snippet impl "Import library" b
+import '${1:lib}';$0
+endsnippet

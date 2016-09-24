@@ -27,3 +27,46 @@ ga('send', 'pageview');
 </script>
 <!-- End Google Analytics -->
 endsnippet
+
+# Angular 2 *ngFor snippet
+snippet ngfor "Angular 2 *ngFor snippet"
+*ngFor="let ${1:item} of ${2:list}"$0
+endsnippet
+
+# Angular 2 *ngIf snippet
+snippet ngif "Angular 2 *ngIf snippet"
+*ngIf="${1:expresion}"$0
+endsnippet
+
+# Angular 2 [ngSwitch] snippet
+snippet ngswitch "Angular 2 [ngSwitch] snippet" b
+<div [ngSwitch]="${1:condition}">
+	<div *ngSwitchWhen="${2:expresion}">$3</div>
+	<div *ngSwitchDefault>$0</div>
+</div>
+endsnippet
+
+# Angular 2 [ngClass] snippet
+snippet ngclass "Angular 2 [ngClass] snippet"
+[ngClass]="{${1:class}: ${2:expression}}"$0
+endsnippet
+
+# Angular 2 [class] binding snippet
+snippet ngclassbind "Angular 2 [class] binding snippet"
+[class]="${1:expression}"$0
+endsnippet
+
+# Angular 2 [style] binding snippet
+snippet ngprop "Angular 2 [style] binding snippet"
+[style.${1:property}]="${2:expression}"$0
+endsnippet
+
+# Angular 2 [ngStyle] snippet
+snippet ngstyle "Angular 2 [ngStyle] snippet"
+[ngStyle]="{${1:style}: ${2:expression}}"$0
+endsnippet
+
+# Angular 2 [(ngModel)] snippet
+snippet ngmodel "Angular 2 [(ngModel)] snippet"
+[(ngModel)]="${1:binding}"$0
+endsnippet
