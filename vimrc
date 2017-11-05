@@ -593,12 +593,14 @@ nnoremap <leader>us :UltiSnipsEdit<cr>
 " }}}
 " [29] colors {{{
 " Sets 256 color scheme based on base16 color schemes
-if &t_Co == 256 || has('gui_running')
-    let base16colorspace = 256
+set termguicolors
+colorscheme one
+" if &t_Co == 256 || has('gui_running')
+"     let base16colorspace = 256
 
-    " colorscheme base16-eighties
-    colorscheme base16-ocean
-endif
+"     " colorscheme base16-eighties
+"     colorscheme base16-ocean
+" endif
 " }}}
 " [30] plugins {{{
 " + MatchIt {{{
@@ -730,7 +732,8 @@ let g:airline_powerline_fonts = 1
 \ }
 
 " Uses base16 as airline theme.
-let g:airline_theme = 'base16'
+" let g:airline_theme = 'base16'
+let g:airline_theme = 'one'
 " + }}}
 " + php-cs-fixer {{{
 " Sets fixer to PSR2 standard level.
